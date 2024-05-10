@@ -1,0 +1,157 @@
+
+"swagger": "2.0"
+"info":
+  "title": "Voosh API"
+  "version": "1.0.0"
+"paths":
+  "/auth/register":
+    "post":
+      "summary": "Register a new user"
+      "consumes":
+        - "application/json"
+      "produces":
+        - "application/json"
+      "parameters":
+        -
+          "in": "body"
+          "name": "body"
+          "description": "User details for registration"
+          "required": true
+          "schema":
+            "type": "object"
+            "properties":
+              "name":
+                "type": "string"
+              "email":
+                "type": "string"
+              "password":
+                "type": "string"
+              "role":
+                "type": "string"
+            "example":
+              "name": "chetan"
+              "email": "admin@sdf.com"
+              "password": "foosh"
+              "role": "admin"
+      "responses":
+        "200":
+          "description": "OK"
+  "/auth/login":
+    "post":
+      "summary": "Login to the system"
+      "consumes":
+        - "application/json"
+      "produces":
+        - "application/json"
+      "parameters":
+        -
+          "in": "body"
+          "name": "body"
+          "description": "User credentials for login"
+          "required": true
+          "schema":
+            "type": "object"
+            "properties":
+              "email":
+                "type": "string"
+              "password":
+                "type": "string"
+            "example":
+              "email": "chetan@voosh.com"
+              "password": "foosh_admin"
+      "responses":
+        "200":
+          "description": "OK"
+  "/auth/google":
+    "get":
+      "summary": "Login with google"
+      "produces":
+        - "application/json"
+      "responses":
+        "200":
+          "description": "OK"
+  "/profile/myProfile":
+    "get":
+      "summary": "Get user's profile"
+      "produces":
+        - "application/json"
+      "responses":
+        "200":
+          "description": "OK"
+  "/auth/logout":
+    "get":
+      "summary": "Logout from the system"
+      "produces":
+        - "application/json"
+      "responses":
+        "200":
+          "description": "OK"
+  "/profile/visibility":
+    "put":
+      "summary": "Update profile visibility"
+      "consumes":
+        - "application/json"
+      "produces":
+        - "application/json"
+      "parameters":
+        -
+          "in": "body"
+          "name": "body"
+          "description": "New visibility settings"
+          "required": true
+          "schema":
+            "type": "object"
+            "properties":
+              "visibility":
+                "type": "string"
+            "example":
+              "visibility": "gaand"
+      "responses":
+        "200":
+          "description": "OK"
+  "/profile/getProfile":
+    "get":
+      "summary": "Get all profiles"
+      "produces":
+        - "application/json"
+      "responses":
+        "200":
+          "description": "OK"
+  "/profile/upadateProfile":
+    "put":
+      "summary": "Update user profile"
+      "consumes":
+        - "application/json"
+      "produces":
+        - "application/json"
+      "parameters":
+        -
+          "in": "body"
+          "name": "body"
+          "description": "New profile details"
+          "required": true
+          "schema":
+            "type": "object"
+            "properties":
+              "username":
+                "type": "string"
+              "email":
+                "type": "string"
+              "password":
+                "type": "string"
+              "phone":
+                "type": "string"
+              "bio":
+                "type": "string"
+              "profilePic":
+                "type": "string"
+            "example":
+              "username": "example_user"
+              "email": "example@example.com"
+              "password": "examplepassword"
+              "phone": "+9134567890"
+              "bio": "This is an example bio."
+              "profilePic": "https://example.com/profilepic.jpg"
+      "responses":
+        "200":
+          "description": "OK"
