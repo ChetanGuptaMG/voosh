@@ -1,11 +1,16 @@
 const argon2 = require('argon2');
 const User = require('../model/user');
 const passport = require('passport');
-
+const {userRegistrationSchema} = require('../validation/schemaValidation')
 // Register a new user or admin
 exports.register = async (req, res, next) => {
   try {
     const { name, email, password, role } = req.body;
+    //add joi validation here
+    const { error } = userRegistrationSchema.validate(req.body);
+    if (error) {
+      return res.status(400).json({ error: error.details[0].message });
+    }
 
     // Check if user already exists
     const user = await User

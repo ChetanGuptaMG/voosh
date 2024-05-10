@@ -1,4 +1,5 @@
 const user = require('../model/user');
+const userProfileUpdateSchema = require('../validation/schemaValidation')
 
 // Get all profiles
 exports.getProfiles = async (req, res, next) => {
@@ -23,6 +24,10 @@ exports.updateProfile = async (req, res, next) => {
     try {
         const {_id} = req.user;
         const { name, email, password, phone, bio, profilePic } = req.body;
+        const {error} = await userProfileUpdateSchema.validate(req.body);
+        if(error){
+            return res.status(400).json({error: error.details[0].message});
+        }
 
         const updatedProfile = await user.findByIdAndUpdate(_id, { name, email, password, phone, bio, profilePic }, { new: true });
 

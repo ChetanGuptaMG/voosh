@@ -11,11 +11,9 @@ const cookieSession = require("cookie-session");
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./openapi2.yaml');
-const cors = require('cors');
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI);
 const app = express();
-app.use(cors("*"));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(
   cookieSession({
