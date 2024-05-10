@@ -40,3 +40,13 @@ Session-based authentication is chosen over token-based authentication for its s
 
 ## Why Argon2 over bcrypt Library?
 Argon2 is chosen over the bcrypt library for password hashing due to its stronger security properties and resistance to emerging threats like GPU-based attacks. Argon2 is considered the state-of-the-art in password hashing algorithms and is recommended by leading security experts. It offers better protection against brute-force attacks and provides options for tuning the hashing parameters based on resource constraints.
+
+## Deployed Routes
+
+### Base Route
+The base route for the deployed API can be accessed at:
+[https://voosh-bg1e.onrender.com](https://voosh-bg1e.onrender.com)
+
+### Swagger Docs Route
+Swagger documentation for the API can be accessed at:
+[https://voosh-bg1e.onrender.com/api-docs/](https://voosh-bg1e.onrender.com/api-docs/)
